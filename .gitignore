@@ -1,0 +1,29 @@
+# Environnement Python
+.venv/
+venv/
+env/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Variables d'environnement
+.env
+
+# Logs
+*.log
+
+# Distribution
+build/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
