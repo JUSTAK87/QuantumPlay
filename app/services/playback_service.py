@@ -11,28 +11,33 @@ from engine.player import FFmpegEngine
 
 class PlaybackService:
     """
-    Service de lecture multimédia.
+    Service responsable de toute la lecture audio/vidéo.
     """
 
     def __init__(self):
         self.engine = FFmpegEngine()
 
     def play(self, track):
-        """Lance la lecture d'une piste."""
         self.engine.play(track)
 
     def pause(self):
-        """Met en pause la lecture."""
         self.engine.pause()
 
     def stop(self):
-        """Arrête la lecture."""
         self.engine.stop()
 
-    def toggle_play(self):
-        """Lecture / Pause."""
-        self.engine.toggle_play()
+    def resume(self):
+        self.engine.resume()
+
+    def seek(self, position):
+        self.engine.seek(position)
 
     def set_volume(self, volume):
-        """Modifie le volume."""
         self.engine.set_volume(volume)
+
+    def toggle_mute(self):
+        self.engine.toggle_mute()
+
+    @property
+    def is_playing(self):
+        return self.engine.is_playing

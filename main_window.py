@@ -22,10 +22,11 @@ from engine.library import MediaLibrary
 
 
 class QuantumPlayLayout(FloatLayout):
-    """Layout racine de l'application."""
 
-    def __init__(self, **kw):
+    def __init__(self, controller=None, **kw):
         super().__init__(**kw)
+
+        self.controller = controller
 
         # --- Moteur et données ---
         self.engine  = FFmpegEngine()

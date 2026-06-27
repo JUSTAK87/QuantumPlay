@@ -7,7 +7,7 @@ import os
 
 # Utiliser ANGLE au lieu d'OpenGL Desktop
 os.environ["KIVY_GL_BACKEND"] = "angle_sdl2"
-os.environ.setdefault('KIVY_NO_ENV_CONFIG', '0')
+from app.controllers.quantum_controller import QuantumController
 
 from kivy.config import Config
 Config.set('graphics', 'width', '1280')
@@ -27,12 +27,18 @@ from ui.main_window import QuantumPlayLayout
 
 class QuantumPlayApp(App):
     title = 'QuantumPlay'
-    icon  = 'assets/logo.ico'
+    icon = 'assets/logo.ico'
 
     def build(self):
         Window.clearcolor = get_color_from_hex(THEME['bg_deep'])
         Window.bind(on_key_down=self._on_key_down)
-        self.root_layout = QuantumPlayLayout()
+
+        controller = QuantumController()
+
+        self.root_layout = QuantumPlayLayout(
+            controller=controller
+        )
+
         return self.root_layout
 
     def _on_key_down(self, window, key, scancode, codepoint, modifier):

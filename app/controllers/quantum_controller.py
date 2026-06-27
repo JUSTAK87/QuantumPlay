@@ -19,6 +19,7 @@ from app.services.settings_service import SettingsService
 class QuantumController:
     """
     Contrôleur principal de QuantumPlay.
+    Coordonne les services et fait le lien avec l'interface.
     """
 
     def __init__(self):
@@ -28,3 +29,15 @@ class QuantumController:
         self.history = HistoryService()
         self.search = SearchService()
         self.settings = SettingsService()
+
+    def play_track(self, track):
+        self.playback.play(track)
+
+    def pause(self):
+        self.playback.pause()
+
+    def stop(self):
+        self.playback.stop()
+
+    def resume(self):
+        self.playback.resume()
