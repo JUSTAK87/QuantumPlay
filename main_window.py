@@ -18,7 +18,6 @@ from ui.widgets.player_bar import PlayerBar
 from ui.widgets.notif import NotifManager
 
 from engine.player import FFmpegEngine, PlayQueue, Track
-from engine.library import MediaLibrary
 
 
 class QuantumPlayLayout(FloatLayout):
@@ -31,7 +30,7 @@ class QuantumPlayLayout(FloatLayout):
         # --- Moteur et données ---
         self.engine  = FFmpegEngine()
         self.queue   = PlayQueue()
-        self.library = MediaLibrary()
+        self.library = self.controller.library
         self.notif   = NotifManager(self)
 
         # Callbacks moteur
