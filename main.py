@@ -4,10 +4,9 @@ Point d'entrée principal
 """
 
 import os
-import sys
 
-# Forcer le backend OpenGL ES2 pour compatibilité max
-os.environ.setdefault('KIVY_GL_BACKEND', 'glew')
+# Utiliser ANGLE au lieu d'OpenGL Desktop
+os.environ["KIVY_GL_BACKEND"] = "angle_sdl2"
 os.environ.setdefault('KIVY_NO_ENV_CONFIG', '0')
 
 from kivy.config import Config
