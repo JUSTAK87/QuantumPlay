@@ -28,7 +28,7 @@ class QuantumPlayLayout(FloatLayout):
         self.controller = controller
 
         # --- Moteur et données ---
-        self.engine  = FFmpegEngine()
+        self.engine = self.controller.playback
         self.queue   = PlayQueue()
         self.library = self.controller.library
         self.notif   = NotifManager(self)

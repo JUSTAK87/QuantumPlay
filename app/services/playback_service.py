@@ -41,3 +41,43 @@ class PlaybackService:
     @property
     def is_playing(self):
         return self.engine.is_playing
+    
+    @property
+    def current_track(self):
+        return self.engine.current_track
+
+
+    @property
+    def position(self):
+        return self.engine.position
+
+
+    @property
+    def duration(self):
+        return self.engine.duration
+    
+    @property
+    def on_track_end(self):
+        return self.engine.on_track_end
+
+    @on_track_end.setter
+    def on_track_end(self, callback):
+        self.engine.on_track_end = callback
+
+
+    @property
+    def on_position_update(self):
+        return self.engine.on_position_update
+
+    @on_position_update.setter
+    def on_position_update(self, callback):
+        self.engine.on_position_update = callback
+
+
+    @property
+    def on_state_change(self):
+        return self.engine.on_state_change
+
+    @on_state_change.setter
+    def on_state_change(self, callback):
+        self.engine.on_state_change = callback
